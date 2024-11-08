@@ -1,0 +1,555 @@
+<html><head><base href="/" /><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Black Panel | Free Fire Panels</title>
+<style>
+:root {
+    --primary: #FF4655;
+    --secondary: #5865F2;
+    --dark: #0F1923;
+    --light: #ECE8E1;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background: var(--dark);
+    color: var(--light);
+}
+
+nav {
+    background: rgba(15,25,35,0.95);
+    padding: 1.2rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255,70,85,0.1);
+    transition: all 0.3s ease;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    list-style: none;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+nav a {
+    color: var(--light);
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+    background: linear-gradient(135deg, rgba(255,70,85,0), rgba(255,70,85,0));
+    border: 1px solid transparent;
+}
+
+nav a:hover {
+    background: linear-gradient(135deg, rgba(255,70,85,0.1), rgba(255,70,85,0.05));
+    border: 1px solid rgba(255,70,85,0.3);
+    color: var(--primary);
+    transform: translateY(-2px);
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 70%;
+}
+
+.header {
+    background: linear-gradient(135deg, rgba(15,25,35,0.95), rgba(0,0,0,0.9)), url('https://media.discordapp.net/attachments/1287051867444084736/1294312287582163055/standard.gif?ex=672e2640&is=672cd4c0&hm=25193f7803129020e1d4bfa135c04415c9a14a0aaaca0357d75e1b9d1950b713&');
+    background-size: cover;
+    background-position: center;
+    height: 90vh;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 150px;
+    background: linear-gradient(to top, var(--dark), transparent);
+}
+
+.logo {
+    animation: float 3s ease-in-out infinite;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.logo svg {
+    filter: drop-shadow(0 0 20px rgba(255, 70, 85, 0.5));
+}
+
+.logo-text {
+    font-size: 5rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, #FF4655, #FF8F9E);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+    letter-spacing: 8px;
+    position: relative;
+    animation: glow 3s ease-in-out infinite;
+    text-shadow: 0 0 30px rgba(255, 70, 85, 0.5);
+}
+
+.logo-accent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, #FF4655, #FF8F9E);
+    filter: blur(20px);
+    opacity: 0.5;
+    z-index: -1;
+}
+
+@keyframes glow {
+    0%, 100% { filter: brightness(1) drop-shadow(0 0 20px rgba(255, 70, 85, 0.5)); }
+    50% { filter: brightness(1.2) drop-shadow(0 0 30px rgba(255, 70, 85, 0.8)); }
+}
+
+.header h1 {
+    font-size: 3rem;
+    background: linear-gradient(135deg, #ECE8E1, #FFFFFF);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: slideIn 1s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.products {
+    padding: 4rem 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.product-card {
+    background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    border: 1px solid rgba(255,255,255,0.1);
+    transform: perspective(1000px) rotateX(0deg);
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.product-card:hover {
+    transform: perspective(1000px) rotateX(5deg) translateY(-10px);
+    box-shadow: 0 20px 40px rgba(255,70,85,0.2);
+}
+
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.btn {
+    background: linear-gradient(135deg, var(--primary), #FF8F9E);
+    color: var(--light);
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    text-decoration: none;
+    box-shadow: 0 10px 20px rgba(255,70,85,0.3);
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(255,70,85,0.4);
+}
+
+.features {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: linear-gradient(145deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+    margin: 4rem auto;
+    max-width: 1200px;
+    border-radius: 30px;
+    border: 1px solid rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+}
+
+.features ul {
+    list-style: none;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.features li {
+    padding: 2rem;
+    background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+    border-radius: 20px;
+    transition: 0.3s;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+}
+
+.features li:hover {
+    transform: translateY(-5px);
+    background: rgba(255,70,85,0.1);
+}
+
+h1, h2, h3 {
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.product-features {
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background: rgba(255,70,85,0.05);
+    border-radius: 10px;
+    text-align: left;
+}
+
+.product-features ul {
+    list-style: none;
+    margin-top: 0.5rem;
+}
+
+.product-features li {
+    margin: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.product-features li::before {
+    content: '▸';
+    color: var(--primary);
+    position: absolute;
+    left: 0;
+}
+
+.btn.buy-now {
+    margin-top: 1.5rem;
+    width: 100%;
+    padding: 1.2rem;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    background: linear-gradient(45deg, var(--primary), #FF8F9E);
+    border: none;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.btn.buy-now:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(255,70,85,0.4);
+}
+
+.btn.buy-now svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+    border-radius: 30px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    overflow: hidden;
+    padding: 20px;
+}
+
+.video-container:hover {
+    transform: translateY(-5px);
+}
+
+.video-container video {
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+@media (max-width: 768px) {
+    .tutorial-section {
+        padding: 4rem 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+        text-align: center;
+    }
+}
+
+.tutorial-section {
+    text-align: center;
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.tutorial-section h2 {
+    font-size: 2.5rem;
+    background: linear-gradient(135deg, #ECE8E1, #FFFFFF);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.visitor-counter {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: linear-gradient(145deg, rgba(255,70,85,0.1), rgba(255,70,85,0.05));
+    padding: 12px 20px;
+    border-radius: 50px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,70,85,0.2);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    z-index: 99;
+    transition: all 0.3s ease;
+}
+
+.visitor-counter:hover {
+    transform: translateY(-3px);
+    background: linear-gradient(145deg, rgba(255,70,85,0.15), rgba(255,70,85,0.1));
+}
+
+.visitor-counter i {
+    color: var(--primary);
+    font-size: 1.1rem;
+}
+
+.visitor-count {
+    font-weight: 600;
+    color: var(--light);
+}
+
+.header-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-btn {
+    background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+    color: var(--light);
+    padding: 1rem 2rem;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.social-btn:hover {
+    transform: translateY(-3px);
+    background: linear-gradient(135deg, rgba(255,255,255,0.15), rgba(255,255,255,0.1));
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.social-btn i {
+    font-size: 1.2rem;
+}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#home">
+                <i class="fas fa-home"></i>
+                Inicio
+            </a></li>
+            <li><a href="#products">
+                <i class="fas fa-shopping-bag"></i>
+                Productos
+            </a></li>
+            <li><a href="https://discord.gg/CZUy49qKEH" target="_blank">
+                <i class="fab fa-discord"></i>
+                Discord
+            </a></li>
+        </ul>
+    </nav>
+
+    <header class="header" id="home">
+        <div class="logo">
+            <div class="logo-accent"></div>
+            <h1 class="logo-text">BLACK PANEL</h1>
+        </div>
+        <h1>Los Mejores Paneles de Free Fire</h1>
+        <p>¡Mejora tu experiencia de juego con nuestros paneles optimizados!</p>
+        <div class="header-buttons">
+            <a href="https://discord.gg/CZUy49qKEH" target="_blank" class="btn discord">
+                <i class="fab fa-discord"></i>
+                Únete a Discord
+            </a>
+            <a href="https://www.tiktok.com/@black_panel_ff" target="_blank" class="social-btn">
+                <i class="fab fa-tiktok"></i>
+                TikTok
+            </a>
+        </div>
+    </header>
+
+    <div class="features">
+        <h2>Características de nuestros paneles</h2>
+        <ul>
+            <li>✨ Interfaz intuitiva y fácil de usar</li>
+            <li>🚀 Optimización avanzada del juego</li>
+            <li>🔒 100% Seguros y confiables</li>
+            <li>⚡ Actualizaciones constantes</li>
+        </ul>
+    </div>
+
+    <section class="products" id="products">
+        <div class="product-card">
+            <img src="/a/f7cb4a2e-12be-41fd-ba8c-6b65a8e3d055" alt="Panel Free Fire interface screenshot" width="300" height="200">
+            <h3>Panel Semanal</h3>
+            <p>Acceso completo por 7 días</p>
+            <div class="product-features">
+                <h4>Características del Panel:</h4>
+                <ul>
+                    <li>AIMBOT CUELLO</li>
+                    <li>SNIPER SCOPE</li>
+                    <li>SNIPER SCOPE TRANKING</li>
+                    <li>SNIPER WSTICH AWM+AWM</li>
+                    <li>CHAM MENU</li>
+                    <li>BYPASS</li>
+                </ul>
+            </div>
+            <h2>$3 USD</h2>
+            <a href="https://discord.gg/CZUy49qKEH" target="_blank" class="btn buy-now">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+                Comprar en Discord
+            </a>
+        </div>
+        <div class="product-card">
+            <img src="/a/f7cb4a2e-12be-41fd-ba8c-6b65a8e3d055" alt="Panel Free Fire interface screenshot" width="300" height="200">
+            <h3>Panel Mensual</h3>
+            <p>Acceso completo por 30 días</p>
+            <div class="product-features">
+                <h4>Características del Panel:</h4>
+                <ul>
+                    <li>AIMBOT CUELLO</li>
+                    <li>SNIPER SCOPE</li>
+                    <li>SNIPER SCOPE TRANKING</li>
+                    <li>SNIPER WSTICH AWM+AWM</li>
+                    <li>CHAM MENU</li>
+                    <li>BYPASS</li>
+                </ul>
+            </div>
+            <h2>$6 USD</h2>
+            <a href="https://discord.gg/CZUy49qKEH" target="_blank" class="btn buy-now">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+                Comprar en Discord
+            </a>
+        </div>
+    </section>
+
+    <section class="tutorial-section">
+        <h2>Guía de Activación del Panel</h2>
+        <div class="video-container">
+            <video controls width="100%" height="auto">
+                <source src="https://cdn.discordapp.com/attachments/1286782726589907077/1304231201581826078/unknown_2024.11.05-19.58_1_-_Trim.mp4?ex=672ea375&is=672d51f5&hm=278fb8d7ce169bbd405ff96bf03a7a3c3583515728879dac8c47fe579256e876&" type="video/mp4">
+                Tu navegador no soporta el elemento de video.
+            </video>
+        </div>
+    </section>
+
+    <div class="visitor-counter">
+        <i class="fas fa-users"></i>
+        <span>Visitantes: <span class="visitor-count" id="visitorCount">0</span></span>
+    </div>
+    
+    <script>
+// Simple visitor counter using localStorage
+document.addEventListener('DOMContentLoaded', function() {
+    let visitors = localStorage.getItem('pageVisitors') || 0;
+    visitors = parseInt(visitors) + 1;
+    localStorage.setItem('pageVisitors', visitors);
+    
+    // Add random initial count to make it look more established
+    const baseCount = 15783;
+    const totalVisitors = baseCount + parseInt(visitors);
+    
+    document.getElementById('visitorCount').textContent = totalVisitors.toLocaleString();
+});
+</script>
+</body></html>
